@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#14161c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Fidget Pad</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="rotate"><div class="rot-phone"></div><p>Turn your device sideways</p></div>
+
+<!-- ============ START SCREEN ============ -->
+<section id="menu" class="screen active">
+  <div class="menu-inner">
+    <h1>Fidget<span>Pad</span></h1>
+    <p class="tag">A pretend controller. It controls nothing. Press away.</p>
+    <div class="cards">
+      <button class="card adult-card" id="goAdult">
+        <svg viewBox="0 0 120 64" aria-hidden="true"><path d="M30 8h60c16 0 26 12 28 30 2 16-6 24-14 22-6-1-10-10-14-14H30c-4 4-8 13-14 14-8 2-16-6-14-22C4 20 14 8 30 8z" fill="#2f3440" stroke="#5c6372" stroke-width="2"/><circle cx="32" cy="28" r="7" fill="#15171c"/><circle cx="88" cy="22" r="3.4" fill="#ffd25f"/><circle cx="96" cy="29" r="3.4" fill="#ff6b6b"/><circle cx="80" cy="29" r="3.4" fill="#5fb4ff"/><circle cx="88" cy="36" r="3.4" fill="#5fe3a1"/><rect x="44" y="38" width="12" height="4" rx="1" fill="#15171c"/><rect x="48" y="34" width="4" height="12" rx="1" fill="#15171c"/><circle cx="72" cy="42" r="6" fill="#15171c"/></svg>
+        <b>Grown-up mode</b>
+        <small>Realistic pad, clicky buttons, springy sticks, tiny toy screen</small>
+      </button>
+      <button class="card kids-card" id="goKids">
+        <svg viewBox="0 0 120 64" aria-hidden="true"><circle cx="22" cy="32" r="16" fill="#ffd23f"/><circle cx="60" cy="32" r="22" fill="#ff5fa2"/><circle cx="98" cy="32" r="16" fill="#3ec5ff"/><circle cx="52" cy="28" r="3.5" fill="#fff"/><circle cx="68" cy="28" r="3.5" fill="#fff"/><path d="M50 38q10 9 20 0" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+        <b>Kids mode</b>
+        <small>Big bright buttons, silly sounds, confetti and a buddy</small>
+      </button>
+    </div>
+    <div class="toggles">
+      <button class="tog" id="togSound" aria-pressed="true">Sound</button>
+      <button class="tog" id="togHaptic" aria-pressed="true">Vibration</button>
+    </div>
+    <p class="foot">Grown-up mode: tap the round home button to come back. Kids mode: hold the lock for 3 seconds.</p>
+  </div>
+</section>
+
+<!-- ============ ADULT MODE ============ -->
+<section id="adult" class="screen">
+  <div class="pad" id="pad">
+    <div class="ctl trig press" data-btn="lt" style="--x:21;--y:13.5;--w:15"><span>LT</span></div>
+    <div class="ctl trig press" data-btn="rt" style="--x:79;--y:13.5;--w:15"><span>RT</span></div>
+    <div class="ctl bump press" data-btn="lb" style="--x:21;--y:20.8;--w:20"><span>LB</span></div>
+    <div class="ctl bump press" data-btn="rb" style="--x:79;--y:20.8;--w:20"><span>RB</span></div>
+
+    <svg class="body" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="bodyG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#4b5160"/><stop offset=".5" stop-color="#2c3039"/><stop offset="1" stop-color="#191b21"/>
+        </linearGradient>
+        <radialGradient id="well"><stop offset=".55" stop-color="#0e1014"/><stop offset="1" stop-color="#0e1014" stop-opacity="0"/></radialGradient>
+        <pattern id="grip" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.4" fill="#ffffff12"/></pattern>
+        <clipPath id="clip"><path d="M250 60C320 40 680 40 750 60C850 70 930 110 960 220C990 330 990 430 900 460C830 480 780 430 740 360C710 340 290 340 260 360C220 430 170 480 100 460C10 430 10 330 40 220C70 110 150 70 250 60Z"/></clipPath>
+      </defs>
+      <g transform="translate(0,60)">
+        <path d="M250 60C320 40 680 40 750 60C850 70 930 110 960 220C990 330 990 430 900 460C830 480 780 430 740 360C710 340 290 340 260 360C220 430 170 480 100 460C10 430 10 330 40 220C70 110 150 70 250 60Z" fill="url(#bodyG)" stroke="#646b7b" stroke-width="2.5"/>
+        <g clip-path="url(#clip)">
+          <ellipse cx="95" cy="390" rx="120" ry="120" fill="url(#grip)"/>
+          <ellipse cx="905" cy="390" rx="120" ry="120" fill="url(#grip)"/>
+          <path d="M250 64C320 44 680 44 750 64C850 74 930 114 958 224" fill="none" stroke="#ffffff22" stroke-width="4"/>
+          <path d="M42 224C72 114 150 74 250 64" fill="none" stroke="#ffffff22" stroke-width="4"/>
+        </g>
+      </g>
+      <circle cx="210" cy="250" r="84" fill="url(#well)"/>
+      <circle cx="650" cy="335" r="76" fill="url(#well)"/>
+      <circle cx="350" cy="335" r="74" fill="url(#well)"/>
+      <circle cx="790" cy="250" r="108" fill="url(#well)" opacity=".55"/>
+    </svg>
+
+    <div class="led" id="led"></div>
+
+    <div class="ctl screenwrap" style="--x:50;--y:36.5;--w:23"><canvas id="mini"></canvas></div>
+
+    <div class="ctl stick" id="lstick" style="--x:21;--y:48;--w:14"><div class="knob"></div></div>
+    <div class="ctl stick" id="rstick" style="--x:65;--y:64.4;--w:12.5"><div class="knob"></div></div>
+
+    <div class="ctl dpad" id="dpad" style="--x:35;--y:64.4;--w:12">
+      <div class="cross" id="cross">
+        <div class="arm up" data-dir="up"></div>
+        <div class="arm down" data-dir="down"></div>
+        <div class="arm left" data-dir="left"></div>
+        <div class="arm right" data-dir="right"></div>
+        <div class="hub"></div>
+      </div>
+    </div>
+
+    <div class="ctl face" style="--x:79;--y:48;--w:18">
+      <div class="fb press" data-btn="y" style="--c:#ffd25f;left:32%;top:0"><span>Y</span></div>
+      <div class="fb press" data-btn="x" style="--c:#5fb4ff;left:0;top:32%"><span>X</span></div>
+      <div class="fb press" data-btn="b" style="--c:#ff6b6b;left:64%;top:32%"><span>B</span></div>
+      <div class="fb press" data-btn="a" style="--c:#5fe3a1;left:32%;top:64%"><span>A</span></div>
+    </div>
+
+    <div class="ctl pill press" data-btn="select" data-label="SELECT" style="--x:44;--y:55.8;--w:5.5"></div>
+    <div class="ctl pill press" data-btn="start" data-label="START" style="--x:56;--y:55.8;--w:5.5"></div>
+    <div class="ctl home press" data-btn="home" data-label="MENU" style="--x:50;--y:57;--w:4.2">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z" fill="currentColor"/></svg>
+    </div>
+  </div>
+  <p class="hint">A / Up jump &middot; B dash &middot; X sparkle &middot; Y colour &middot; LT slow-mo &middot; RT turbo &middot; LB/RB theme &middot; START pause &middot; SELECT screen mode &middot; HOME menu</p>
+</section>
+
+<!-- ============ KIDS MODE ============ -->
+<section id="kids" class="screen">
+  <div class="bubbles"></div>
+  <button class="lock" id="lock" aria-label="Parent lock. Hold for 3 seconds to exit.">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3h1a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zm2 0h6V7a3 3 0 0 0-6 0z" fill="currentColor"/></svg>
+  </button>
+  <div class="locktip" id="locktip">Grown-ups: keep holding&hellip;</div>
+
+  <div class="kgrid">
+    <div class="kcol">
+      <div class="kstick" id="kstickL" style="--c:#ff7a59;--d:#d34d2c"><div class="kknob"></div></div>
+      <div class="krow">
+        <div class="kbtn" data-k="honk" style="--c:#ff8b3d;--d:#c95f17"><svg viewBox="0 0 24 24"><path d="M9 18.5a3 3 0 1 1-2-2.8V5l12-2v12.5a3 3 0 1 1-2-2.8V6.6l-8 1.4z"/></svg></div>
+        <div class="kbtn" data-k="boing" style="--c:#3ec5ff;--d:#1a8fc7"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="9" cy="9" r="2.4" fill="#3ec5ff" opacity=".5"/></svg></div>
+      </div>
+    </div>
+
+    <div class="kcol mid">
+      <div class="charbox" id="charbox">
+        <div class="charLean" id="charLean">
+          <div class="charIdle">
+            <div class="charAnim" id="charAnim">
+              <svg id="charSvg" viewBox="0 0 200 200" data-mouth="smile" data-eyes="open" data-blush="0" aria-label="A friendly yellow buddy">
+                <defs>
+                  <radialGradient id="chG" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#fff07a"/><stop offset=".6" stop-color="#ffd23f"/><stop offset="1" stop-color="#f5a623"/></radialGradient>
+                </defs>
+                <path d="M100 22 C96 10 104 4 112 6" stroke="#4caf50" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <ellipse cx="118" cy="8" rx="11" ry="6" fill="#6bd66f" transform="rotate(-20 118 8)"/>
+                <ellipse cx="70" cy="184" rx="20" ry="10" fill="#f5a623"/>
+                <ellipse cx="130" cy="184" rx="20" ry="10" fill="#f5a623"/>
+                <path d="M100 22C152 22 182 62 182 112C182 160 146 184 100 184C54 184 18 160 18 112C18 62 48 22 100 22Z" fill="url(#chG)"/>
+                <ellipse cx="74" cy="48" rx="20" ry="9" fill="#fff" opacity=".35" transform="rotate(-20 74 48)"/>
+                <ellipse class="cheek" cx="50" cy="128" rx="12" ry="7"/>
+                <ellipse class="cheek" cx="150" cy="128" rx="12" ry="7"/>
+                <g transform="translate(72 98)">
+                  <g class="e-open"><circle r="17" fill="#fff"/><g class="pupil" id="pupilL"><circle r="8.5" fill="#2b2140"/><circle cx="-3" cy="-3" r="3" fill="#fff"/></g></g>
+                  <path class="e-happy" d="M-13 4Q0-12 13 4" stroke="#2b2140" stroke-width="5" fill="none" stroke-linecap="round"/>
+                  <path class="e-closed" d="M-13 0H13" stroke="#2b2140" stroke-width="5" stroke-linecap="round"/>
+                </g>
+                <g transform="translate(128 98)">
+                  <g class="e-open"><circle r="17" fill="#fff"/><g class="pupil" id="pupilR"><circle r="8.5" fill="#2b2140"/><circle cx="-3" cy="-3" r="3" fill="#fff"/></g></g>
+                  <path class="e-happy" d="M-13 4Q0-12 13 4" stroke="#2b2140" stroke-width="5" fill="none" stroke-linecap="round"/>
+                  <path class="e-closed" d="M-13 0H13" stroke="#2b2140" stroke-width="5" stroke-linecap="round"/>
+                </g>
+                <g transform="translate(100 138)">
+                  <path class="m m-smile" d="M-22-4Q0 18 22-4" stroke="#2b2140" stroke-width="5" fill="none" stroke-linecap="round"/>
+                  <g class="m m-grin"><path d="M-26-8Q0 34 26-8Z" fill="#7a2340" stroke="#2b2140" stroke-width="4" stroke-linejoin="round"/><ellipse cx="0" cy="10" rx="10" ry="5" fill="#ff7aa8"/></g>
+                  <ellipse class="m m-open" cx="0" cy="4" rx="11" ry="14" fill="#7a2340" stroke="#2b2140" stroke-width="4"/>
+                  <g class="m m-tongue"><path d="M-22-4Q0 10 22-4" stroke="#2b2140" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M-9 2Q-10 22 0 22Q10 22 9 2Z" fill="#ff5f8f" stroke="#2b2140" stroke-width="3"/></g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="charShadow"></div>
+      </div>
+    </div>
+
+    <div class="kcol">
+      <div class="diamond">
+        <div class="kbtn" data-k="star" style="--c:#ffc93c;--d:#d99a0b;left:32%;top:0"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.2 6.8.8-5 4.6 1.4 6.7L12 17l-6.1 3.3 1.4-6.7-5-4.6 6.8-.8z" stroke-linejoin="round"/></svg></div>
+        <div class="kbtn" data-k="tri" style="--c:#5be37d;--d:#26a94a;left:0;top:32%"><svg viewBox="0 0 24 24"><path d="M12 4l9 15H3z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+        <div class="kbtn" data-k="heart" style="--c:#ff5fa2;--d:#d12f74;left:64%;top:32%"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 5.2 3 1.8-1.9 3.2-3 5.2-3 3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg></div>
+        <div class="kbtn" data-k="square" style="--c:#a77bff;--d:#7446db;left:32%;top:64%"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3.5"/></svg></div>
+      </div>
+      <div class="kstick" id="kstickR" style="--c:#5be37d;--d:#26a94a"><div class="kknob"></div></div>
+    </div>
+  </div>
+</section>
+
+<canvas id="fx"></canvas>
+<script src="app.js"></script>
+</body>
+</html>
